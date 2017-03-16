@@ -22,11 +22,6 @@ branches:
   except:
     - "/^v\\d+\\.\\d+\\.\\d+$/"
 services:
-  - mongodb
-  - redis
-  - riak
-  - cassandra
   - neo4j
 install:
   - npm list --depth=0
-  - echo "CREATE KEYSPACE vixlet WITH REPLICATION = { 'class':'SimpleStrategy', 'replication_factor':1 };" | cqlsh
