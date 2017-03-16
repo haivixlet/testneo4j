@@ -15,12 +15,13 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
-      - neo4j-2.3.5
 before_install:
   # install Neo4j locally:
-  #- wget dist.neo4j.org/neo4j-community-2.3.5-unix.tar.gz
-  #- tar -xzf neo4j-community-2.3.5-unix.tar.gz
-  #- neo4j-community-2.3.5/bin/neo4j start
+  - wget dist.neo4j.org/neo4j-community-2.3.5-unix.tar.gz
+  - tar -xzf neo4j-community-2.3.5-unix.tar.gz
+  - neo4j-community-2.3.5/bin/neo4j start
+  - curl -X GET http://localhost:7474/user/neo4j --user neo4j:neo4j -H Accept:application/json -H Content-Type:application/json
+  - curl -X POST http://localhost:7474/user/neo4j/password --user neo4j:neo4j -H Accept:application/json -H Content-Type:application/json -d "{\"password\": \"pass\"}"
 before_script:
 after_success:
 branches:
