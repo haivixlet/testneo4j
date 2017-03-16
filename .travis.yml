@@ -15,11 +15,12 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
+      - neo4j=2.3.5
 before_install:
   # install Neo4j locally:
-  - wget dist.neo4j.org/neo4j-community-2.3.5-unix.tar.gz
-  - tar -xzf neo4j-community-2.3.5-unix.tar.gz
-  - neo4j-community-2.3.5/bin/neo4j start
+  #- wget dist.neo4j.org/neo4j-community-2.3.5-unix.tar.gz
+  #- tar -xzf neo4j-community-2.3.5-unix.tar.gz
+  #- neo4j-community-2.3.5/bin/neo4j start
 before_script:
 after_success:
 branches:
