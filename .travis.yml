@@ -1,5 +1,4 @@
 sudo: false
-dist: trusty
 language: node_js
 cache:
   directories:
@@ -17,12 +16,15 @@ addons:
     packages:
       - g++-4.8
 before_install:
+  # install Neo4j locally:
+  - wget dist.neo4j.org/neo4j-community-2.3.5-unix.tar.gz
+  - tar -xzf neo4j-community-2.3.5-unix.tar.gz
+  - neo4j-community-2.3.5/bin/neo4j start
 before_script:
 after_success:
 branches:
   except:
     - "/^v\\d+\\.\\d+\\.\\d+$/"
 services:
-  - neo4j
 install:
   - npm list --depth=0
