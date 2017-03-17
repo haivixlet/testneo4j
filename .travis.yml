@@ -16,6 +16,9 @@ addons:
     packages:
       - g++-4.8
 before_install:
+  - apt-get install -y mongodb-org=2.6.6 mongodb-org-server=2.6.6 mongodb-org-shell=2.6.6 mongodb-org-mongos=2.6.6 mongodb-org-tools=2.6.6
+  - sleep 15 #mongo may not be responded directly. See http://docs.travis-ci.com/user/database-setup/#MongoDB
+  - mongo --version
   # install Neo4j locally:
   - wget dist.neo4j.org/neo4j-community-2.3.5-unix.tar.gz
   - tar -xzf neo4j-community-2.3.5-unix.tar.gz
